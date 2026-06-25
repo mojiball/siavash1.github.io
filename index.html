@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIGHT LORD SIAVASH</title><style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Consolas,monospace;
+}
+
+body{
+background:#000;
+color:#00ff00;
+height:100vh;
+overflow:hidden;
+}
+
+#screen{
+padding:20px;
+}
+
+h1{
+text-align:center;
+margin:20px 0;
+text-shadow:0 0 15px #00ff00;
+}
+
+.panel{
+max-width:700px;
+margin:auto;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+background:#000;
+border:1px solid #00ff00;
+color:#00ff00;
+}
+
+button{
+width:100%;
+padding:12px;
+margin:5px 0;
+background:#001100;
+border:1px solid #00ff00;
+color:#00ff00;
+cursor:pointer;
+}
+
+button:hover{
+background:#003300;
+}
+
+#terminal{
+display:none;
+height:80vh;
+overflow-y:auto;
+border-top:1px solid #00ff00;
+padding:15px;
+white-space:pre-wrap;
+}
+
+.blink{
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{opacity:0;}
+}
+</style></head>
+<body><div id="screen"><h1>NIGHT LORD SIAVASH</h1><div class="panel" id="loginBox">
+<h3>ENTER MASTER PASSWORD</h3>
+<input type="password" id="pass" placeholder="Password">
+<button onclick="enterPanel()">ACCESS SYSTEM</button>
+</div><div class="panel" id="menuBox" style="display:none;">
+<h3>SELECT MODULE</h3><button onclick="selectAction('GPS TRACKING MODULE')">GPS TRACKING MODULE</button>
+
+<button onclick="selectAction('WHATSAPP SCANNER')">WHATSAPP SCANNER</button>
+
+<button onclick="selectAction('IP INTELLIGENCE')">IP INTELLIGENCE</button>
+
+<button onclick="selectAction('DEVICE OVERRIDE')">DEVICE OVERRIDE</button>
+
+<button onclick="selectAction('ABOUT NIGHT LORD SIAVASH')">ABOUT NIGHT LORD SIAVASH</button>
+
+</div><div class="panel" id="targetBox" style="display:none;">
+<h3>ENTER TARGET NUMBER</h3><input id="target" placeholder="+123456789"><button onclick="runSimulation()">START</button>
+
+</div><div id="terminal"></div></div><script>
+
+let selectedModule="";
+
+function enterPanel(){
+document.getElementById("loginBox").style.display="none";
+document.getElementById("menuBox").style.display="block";
+}
+
+function selectAction(name){
+selectedModule=name;
+
+document.getElementById("menuBox").style.display="none";
+document.getElementById("targetBox").style.display="block";
+}
+
+function runSimulation(){
+
+document.getElementById("targetBox").style.display="none";
+
+let terminal=document.getElementById("terminal");
+terminal.style.display="block";
+
+const logs=[
+"[SYSTEM] Establishing encrypted tunnel...",
+"[SYSTEM] Loading intelligence database...",
+"[SYSTEM] Connecting to secure node...",
+"[SYSTEM] Scanning target profile...",
+"[SYSTEM] Verifying endpoint...",
+"[SYSTEM] Fetching metadata...",
+"[SYSTEM] Analyzing network routes...",
+"[SYSTEM] Access token generated...",
+"[SYSTEM] Building report...",
+"[SYSTEM] Collecting signal traces...",
+"[SYSTEM] Monitoring active sessions...",
+"[SYSTEM] Synchronizing modules...",
+"[SYSTEM] Running deep analysis...",
+"[SYSTEM] Finalizing operation...",
+"",
+"[SUCCESS] MODULE EXECUTED",
+"",
+"Target Number: "+document.getElementById("target").value,
+"Selected Module: "+selectedModule,
+"",
+"STATUS: COMPLETED",
+"",
+"Night Lord Siavash Security Console v4.7"
+];
+
+let i=0;
+
+let interval=setInterval(()=>{
+
+if(i<logs.length){
+
+terminal.innerHTML+=logs[i]+"\\n";
+
+terminal.scrollTop=terminal.scrollHeight;
+
+i++;
+
+}else{
+
+clearInterval(interval);
+
+terminal.innerHTML+="\\n\\n> SYSTEM READY <span class='blink'>█</span>";
+
+}
+
+},500);
+
+}
+
+</script></body>
+</html>
